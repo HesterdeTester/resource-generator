@@ -15,8 +15,8 @@ export class MiningFormComponent implements OnInit {
 
   ngOnInit() {
     this.miningForm = new FormGroup({
-      planet: new FormControl('', [Validators.required]),
-      level: new FormControl('', [Validators.required]),
+      planet: new FormControl(1, [Validators.required]),
+      level: new FormControl(1, [Validators.required]),
     });
   }
   onSubmit() {
