@@ -1,0 +1,23 @@
+
+Geode	        Unubtanium %	Surilium %	Dalium %	Blarnium %	Empty %
+amejisuto	        24	        16	        34	        24	        2
+anmoraito	        9	        21	        21	        47	        2
+gaanetto	        16	        24	        24	        34	        2
+gankakiseki	        16	        62	        4	        16	        2
+hisui	            24	        24	        24	        24	        2
+ishi	            21	        47	        9	        21	        2
+keikujakuseki	    16	        4	        62	        16	        2
+keisenseki	        47	        21	        21	        9	        2
+kongouseki	        0	        0	        0	        98	        2
+kougyoku	        98	        0	        0	        0	        2
+marakaito	        21	        9	        47	        21	        2
+menou	            34	        24	        24	        16	        2
+murasaki_suishou	9	        1	        79	        9	        2
+seigyoku	        0	        0	        98	        0	        2
+sekiei	            4	        16	        16	        62	        2
+suishou	            0	        98	        0	        0	        2
+supineru	        62	        16	        16	        4	        2
+tanbaku_seiki	    9	        79	        1	        9	        2
+tanpakuishi	        79	        9	        9	        1	        2
+torukoishi	        24	        34	        16	        24	        2
+zakuroishi	        1	        9	        9	        79	        2
