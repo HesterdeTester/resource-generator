@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import Geodes from '../../assets/data/geodes.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MiningCalcService {
+  geodes: any = Geodes;
+
   mockResult = {
     grondstof1: 1,
     grondstof2: 0,
@@ -12,54 +15,62 @@ export class MiningCalcService {
 
   constructor() { }
 
-  getResult(geode, level): any {
-    const chances = this.getChances(geode);
-    return this.calculator(level, chances);
+  getResult(level: number, geode): any {
+    const chancesJson = this.getChances(geode);
+    return this.calculator(level, chancesJson.chances);
   }
 
   getChances(geode) {
-    const chanceRest = 21;
-    return chanceRest;
+    return this.geodes.geodeList.find(item => item.id === geode);
+    // const chanceRest = 21; oud,
+    // return chanceRest;
     // krijg de unubtaniumChance,	suriliumChance,	daliumChance,	blarniumChance, of endrange, in een json
   }
-
-  calculator(level = 10, unubtaniumChance = 21, suriliumChance = 47, daliumChance = 9, blarniumChance = 21): any {  // nu nog hardcoded
-    const loops = level + this.getRandomInt((level / 2), level);
-    const unubtaniumEndRange = unubtaniumChance - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
-    const suriliumEndRange = unubtaniumChance + suriliumChance - 1;
-    const daliumEndRange = unubtaniumChance + suriliumChance + daliumChance - 1;
-    const blarniumEndRange = unubtaniumChance + suriliumChance + daliumChance + blarniumChance - 1;
-
+  // nu nog hardcoded:
+  calculator(level: number, chance, unubtaniumChance = 21, suriliumChance = 47, daliumChance = 9, blarniumChance = 21): any {
+    const loops: number = Math.round(this.getRandomInt((level / 2), level));
+    const unubtaniumEndRange = chance.unubtanium - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
+    const suriliumEndRange = chance.unubtanium + chance.surilium - 1;
+    const daliumEndRange = chance.unubtanium + chance.surilium + chance.dalium - 1;
+    const blarniumEndRange = chance.unubtanium + chance.surilium + chance.dalium + chance.blarnium - 1;
+    console.log('kansen: ' + unubtaniumEndRange + ' & ' + suriliumEndRange + ' & ' + daliumEndRange + ' & ' + blarniumEndRange);
     const grondstoffen = this.getGrondstof(loops, unubtaniumEndRange, suriliumEndRange, daliumEndRange, blarniumEndRange);
     return grondstoffen;
   }
-  getGrondstof(loops, unubtaniumEndRange, suriliumEndRange, daliumEndRange, blarniumEndRange) {
+  getGrondstof(loops: number, unubtaniumEndRange, suriliumEndRange, daliumEndRange, blarniumEndRange) {
     const result = [];
+    console.log('loops: ' + loops);
     for (let i = 0; i < loops; i++) {
       const calcChance: number = this.getRandomInt(0, 99); // 99 nodig, anders krijgt empty 3 procent kans ipv 2
+      console.log('randomgetal  ' + i + ':  ' + calcChance);
       if (this.inRange(calcChance, 0, unubtaniumEndRange)) {
         result.push('Unubtanium');
+        continue;
       }
       if (this.inRange(calcChance, (unubtaniumEndRange + 1), suriliumEndRange)) {
         result.push('Surilium');
+        continue;
       }
       if (this.inRange(calcChance, (suriliumEndRange + 1), daliumEndRange)) {
         result.push('Dalium');
+        continue;
       }
       if (this.inRange(calcChance, (daliumEndRange + 1), blarniumEndRange)) {
         result.push('Blarnium');
-      } else {
-        result.push('Empty');   // misschien raar als je level 10 bent en je 10 grondstoffen verwacht,
-        // dan krijg je er 7 waarvan 3 'empty', over nadenken
+        continue;
       }
-      return result;
-    }
+      if (this.inRange(calcChance, (blarniumEndRange + 1), 99)) {
+        result.push('Empty');
+        continue;
+      }
+  }
+    return result;
   }
 
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * max) + min;
-  }
-  inRange(x, min, max) {
-    return ((x - min) * (x - max) <= 0);
-  }
+getRandomInt(min, max): number {
+  return Math.random() * (max - min) + min;
+}
+inRange(x, min, max) {
+  return ((x - min) * (x - max) <= 0);
+}
 }
