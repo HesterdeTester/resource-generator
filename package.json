@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "ng build --aot --prod && http-server ./dist -p 4200"
   },
   "private": true,
   "dependencies": {
@@ -18,8 +19,11 @@
     "@angular/forms": "~8.2.0",
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
+    "@angular/pwa": "^0.802.0",
     "@angular/router": "~8.2.0",
+    "@angular/service-worker": "~8.2.0",
     "chart.js": "^2.8.0",
+    "http-server": "^0.9.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
