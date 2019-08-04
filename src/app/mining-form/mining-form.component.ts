@@ -23,9 +23,11 @@ export class MiningFormComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.submittedGeode = this.geodes.geodeList.find(item => item.id === this.miningForm.controls.geode.value);
-    this.message = JSON.stringify(this.miningCalcService.getResult(
-      this.miningForm.controls.level.value, this.miningForm.controls.geode.value));
+    this.submittedGeode = null;
+    setTimeout(() => {
+      this.submittedGeode = this.geodes.geodeList.find(item => item.id === this.miningForm.controls.geode.value);
+      this.message = JSON.stringify(this.miningCalcService.getResult(
+        this.miningForm.controls.level.value, this.miningForm.controls.geode.value));
+    }, 100);
   }
-
 }

@@ -43,7 +43,11 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
         animation: false,
         responsive: true,
         legend: { display: false },
-        title: { display: false },
+        title: {
+          display: true,
+          text: this.geode.name,
+          fontSize: 16
+        },
         scales: {
           xAxes: [{
             display: true
