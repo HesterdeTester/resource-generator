@@ -12,6 +12,7 @@ export class MiningFormComponent implements OnInit {
   miningForm: FormGroup;
   message: string;
   geodes: any = Geodes;
+  submittedGeode: any;
 
   constructor(private miningCalcService: MiningCalcService) { }
 
@@ -24,6 +25,8 @@ export class MiningFormComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.miningForm.value);
+    console.log(this.geodes);
+    this.submittedGeode = this.geodes.geodeList.find(item => item.id === this.miningForm.controls.geode.value);
     this.message = JSON.stringify(this.miningCalcService.getResult(
       this.miningForm.controls.level.value, this.miningForm.controls.geode.value)); // moet andere waardes (level,geode)
   }

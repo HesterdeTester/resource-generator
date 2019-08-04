@@ -29,4 +29,7 @@
     <p>
         {{ message }}
     </p>
+    <div *ngIf="submittedGeode">
+        <app-mining-chart [geode]="submittedGeode"></app-mining-chart>
+    </div>
 </div>
