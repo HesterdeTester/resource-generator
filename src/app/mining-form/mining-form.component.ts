@@ -17,18 +17,15 @@ export class MiningFormComponent implements OnInit {
   constructor(private miningCalcService: MiningCalcService) { }
 
   ngOnInit() {
-    console.log(this.geodes);
     this.miningForm = new FormGroup({
       geode: new FormControl('', [Validators.required]),
       level: new FormControl('', [Validators.required]),
     });
   }
   onSubmit() {
-    console.log(this.miningForm.value);
-    console.log(this.geodes);
     this.submittedGeode = this.geodes.geodeList.find(item => item.id === this.miningForm.controls.geode.value);
     this.message = JSON.stringify(this.miningCalcService.getResult(
-      this.miningForm.controls.level.value, this.miningForm.controls.geode.value)); // moet andere waardes (level,geode)
+      this.miningForm.controls.level.value, this.miningForm.controls.geode.value));
   }
 
 }

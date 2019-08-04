@@ -33,16 +33,13 @@ export class MiningCalcService {
     const suriliumEndRange = chance.unubtanium + chance.surilium - 1;
     const daliumEndRange = chance.unubtanium + chance.surilium + chance.dalium - 1;
     const blarniumEndRange = chance.unubtanium + chance.surilium + chance.dalium + chance.blarnium - 1;
-    console.log('kansen: ' + unubtaniumEndRange + ' & ' + suriliumEndRange + ' & ' + daliumEndRange + ' & ' + blarniumEndRange);
     const grondstoffen = this.getGrondstof(loops, unubtaniumEndRange, suriliumEndRange, daliumEndRange, blarniumEndRange);
     return grondstoffen;
   }
   getGrondstof(loops: number, unubtaniumEndRange, suriliumEndRange, daliumEndRange, blarniumEndRange) {
     const result = [];
-    console.log('loops: ' + loops);
     for (let i = 0; i < loops; i++) {
       const calcChance: number = this.getRandomInt(0, 99); // 99 nodig, anders krijgt empty 3 procent kans ipv 2
-      console.log('randomgetal  ' + i + ':  ' + calcChance);
       if (this.inRange(calcChance, 0, unubtaniumEndRange)) {
         result.push('Unubtanium');
         continue;

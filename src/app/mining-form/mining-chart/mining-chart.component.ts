@@ -7,6 +7,7 @@ import { Chart } from 'chart.js';
   styleUrls: ['./mining-chart.component.scss']
 })
 export class MiningChartComponent implements OnInit, AfterViewInit {
+
   chart: any;
   @Input() geode: any;
 
@@ -17,14 +18,11 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.geode);
-    
     this.cd.detectChanges();
   }
 
   createChart() {
     const htmlRef = (this.elementRef.nativeElement.querySelector('#miningChart')).getContext('2d');
-    console.log('htmlRef: ' + htmlRef);
     // this will be our beautiful chart, now some options:
     this.chart = new Chart(htmlRef, {
       type: 'bar',
@@ -35,7 +33,7 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
             backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850'],
             fill: false,
             borderColor: '#3cba9f',
-            data: [24, 16, 34, 24, 2]
+            data: [this.geode.chances.unubtanium, this.geode.chances.surilium, this.geode.chances.dalium, this.geode.chances.blarnium, 2]
           }
         ]
       }, // nog te vullen
@@ -56,28 +54,6 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
         }
       }
     });
-
-    // this.chart = new Chart(htmlRef, {
-    //   type: 'doughnut',
-    //   data: {
-    //     datasets: [{
-    //       backgroundColor: ['red', 'blue', 'green'],
-    //       data: [10, 20, 30, 40]
-    //     }],
-    //     labels: [
-    //       'ss', 'oo', 'ee'
-    //     ]
-    //   },
-    //   options: {
-    //     display: true,
-    //     maintainAspectRatio: true,
-    //     legend: false,
-    //     animation: false,
-    //     responsive: true
-    //   }
-    // });
-
-    console.log(this.chart);
   }
 
   setData(): any {

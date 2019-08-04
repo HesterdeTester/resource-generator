@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MiningChartComponent } from './mining-chart.component';
 
 describe('MiningChartComponent', () => {
