@@ -27,7 +27,7 @@ export class MiningCalcService {
     // krijg de unubtaniumChance,	suriliumChance,	daliumChance,	blarniumChance, of endrange, in een json
   }
   // nu nog hardcoded:
-  calculator(level: number, chance, unubtaniumChance = 21, suriliumChance = 47, daliumChance = 9, blarniumChance = 21): any {
+  calculator(level: number, chance): any {
     const loops: number = Math.round(this.getRandomInt((level / 2), level));
     const unubtaniumEndRange = chance.unubtanium - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
     const suriliumEndRange = chance.unubtanium + chance.surilium - 1;
