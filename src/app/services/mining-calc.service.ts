@@ -28,7 +28,7 @@ export class MiningCalcService {
   }
   // nu nog hardcoded:
   calculator(level: number, chance): any {
-    const loops: number = Math.round(this.getRandomInt((level / 2), level));
+    const loops: number = Math.ceil(this.getRandomInt((level / 2), level));
     const unubtaniumEndRange = chance.unubtanium - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
     const suriliumEndRange = chance.unubtanium + chance.surilium - 1;
     const daliumEndRange = chance.unubtanium + chance.surilium + chance.dalium - 1;

@@ -44,10 +44,10 @@
             "id": "hisui",
             "name": "Hisui",
             "chances": {
-                "unubtanium": 24,
+                "unubtanium": 25,
                 "surilium": 24,
                 "dalium": 24,
-                "blarnium": 24
+                "blarnium": 25
             }
         },
         {

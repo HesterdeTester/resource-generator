@@ -27,7 +27,7 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
     this.chart = new Chart(htmlRef, {
       type: 'bar',
       data: {
-        labels: ['Unubtanium: ' + this.geode.chances.unubtanium + '%', 'Surilium: ' + this.geode.chances.surilium + '%', 'Dalium: ' + this.geode.chances.dalium + '%', 'Blarnium: ' + this.geode.chances.blarnium + '%', 'Empty'],
+        labels: ['Unubtanium: ' + this.geode.chances.unubtanium + '%', 'Surilium: ' + this.geode.chances.surilium + '%', 'Dalium: ' + this.geode.chances.dalium + '%', 'Blarnium: ' + this.geode.chances.blarnium + '%', 'Empty: 2%'],
         datasets: [
           {
             backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850'],
