@@ -10,7 +10,7 @@ import Geodes from '../../assets/data/geodes.json';
 })
 export class MiningFormComponent implements OnInit {
   miningForm: FormGroup;
-  oreArray: string[];
+  oreArray: any[];
   geodes: any = Geodes;
   submittedGeode: any;
 

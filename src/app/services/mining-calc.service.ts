@@ -64,15 +64,14 @@ export class MiningCalcService {
         continue;
       }
     }
-    const textJson = '[' +
-      '{ name: "Unubtanium" , amount: ' + unubtaniumCount + ' },' +
-      '{ name: "Surilium:" , amount: ' + suriliumCount + ' },' +
-      '{ name: "Dalium" , amount: ' + daliumCount + ' },' +
-      '{ name: "Blarnium" , amount: ' + blarniumCount + ' },' +
-      '{ name: "Empty" , amount: ' + emptyCount + ' }+ ' +
-      '{ name: "Total" , amount: ' + totalCount + ' }]'
-    //console.log('textJSON' + textJson);
-    return textJson;
+    const resultArray = [ +
+      { name: 'Unubtanium' , amount:  + unubtaniumCount },
+      { name: 'Surilium' , amount:  + suriliumCount },
+      { name: 'Dalium' , amount: + daliumCount },
+      { name: 'Blarnium' , amount:  blarniumCount },
+      { name: 'Empty' , amount:  emptyCount },
+      { name: 'Totaal aantal grondstoffen' , amount:  totalCount }]
+    return resultArray;
   }
 
 
