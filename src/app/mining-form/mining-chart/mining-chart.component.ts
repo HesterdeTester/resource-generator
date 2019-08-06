@@ -27,7 +27,7 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
     this.chart = new Chart(htmlRef, {
       type: 'bar',
       data: {
-        labels: ['Unubtanium', 'Surilium', 'Dalium', 'Blarnium', 'Empty'],
+        labels: ['Unubtanium: ' + this.geode.chances.unubtanium + '%', 'Surilium: ' + this.geode.chances.surilium + '%', 'Dalium: ' + this.geode.chances.dalium + '%', 'Blarnium: ' + this.geode.chances.blarnium + '%', 'Empty: 2%'],
         datasets: [
           {
             backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850'],
@@ -36,7 +36,7 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
             data: [this.geode.chances.unubtanium, this.geode.chances.surilium, this.geode.chances.dalium, this.geode.chances.blarnium, 2]
           }
         ]
-      }, // nog te vullen
+      },
       options: {
         display: true,
         maintainAspectRatio: false,
@@ -46,7 +46,7 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
         title: {
           display: true,
           text: this.geode.name,
-          fontSize: 16
+          fontSize: 17
         },
         scales: {
           xAxes: [{
@@ -60,13 +60,13 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
     });
   }
 
-  setData(): any {
-    return {
-      datasets: [{
-        data: [24, 16, 34, 24]
-      }],
-      labels: ['Unubtanium', 'Surilium', 'Dalium', 'Blarnium']
-    };
-  }
+  // setData(): any {
+  //   return {
+  //     datasets: [{
+  //       data: [24, 16, 34, 24]
+  //     }],
+  //     labels: ['Unubtanium', 'Surilium', 'Dalium', 'Blarnium']
+  //   };
+  // }
 
 }

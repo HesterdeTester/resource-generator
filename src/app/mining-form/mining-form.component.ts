@@ -10,7 +10,7 @@ import Geodes from '../../assets/data/geodes.json';
 })
 export class MiningFormComponent implements OnInit {
   miningForm: FormGroup;
-  message: string;
+  oreArray: any[];
   geodes: any = Geodes;
   submittedGeode: any;
 
@@ -20,14 +20,15 @@ export class MiningFormComponent implements OnInit {
     this.miningForm = new FormGroup({
       geode: new FormControl('', [Validators.required]),
       level: new FormControl('', [Validators.required]),
+      times: new FormControl(1, [Validators.required]),
     });
   }
   onSubmit() {
     this.submittedGeode = null;
     setTimeout(() => {
       this.submittedGeode = this.geodes.geodeList.find(item => item.id === this.miningForm.controls.geode.value);
-      this.message = JSON.stringify(this.miningCalcService.getResult(
-        this.miningForm.controls.level.value, this.miningForm.controls.geode.value));
+      this.oreArray = this.miningCalcService.getResult(
+        this.miningForm.controls.level.value, this.miningForm.controls.geode.value);
     }, 100);
   }
 }
