@@ -20,6 +20,7 @@ export class MiningFormComponent implements OnInit {
     this.miningForm = new FormGroup({
       geode: new FormControl('', [Validators.required]),
       level: new FormControl('', [Validators.required]),
+      times: new FormControl(1, [Validators.required]),
     });
   }
   onSubmit() {
