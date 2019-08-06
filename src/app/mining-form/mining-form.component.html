@@ -1,8 +1,8 @@
 <div class="container">
-    <h1>Lekker minen</h1>
-    <form [formGroup]="miningForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="geode">Geode: </label>
+	<h1>Lekker minen</h1>
+	<form [formGroup]="miningForm" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label for="geode">Geode: </label>
             <select class="form-control" id="geode" formControlName="geode">
                 <option *ngFor="let geode of geodes.geodeList" [value]="geode.id">{{geode.name}}</option>
             </select>
@@ -26,9 +26,22 @@
 
     </form>
     <br>
-    <p>
-        {{ message }}
-    </p>
+<table>
+  <tr *ngFor="let group of oreArray">
+      <td> {{ group.name }} </td>
+      <td> {{ group.amount }} </td>
+  </tr>
+</table>
+
+
+    <!-- <table>
+    <tr *ngFor="#oreArray of oreArray">
+        <td><h1>{{oreArray.name}}</h1></td>
+    </tr>
+</table> -->
+    <!-- <p>
+        {{ oreArray }}
+    </p> -->
     <div *ngIf="submittedGeode">
         <app-mining-chart [geode]="submittedGeode"></app-mining-chart>
     </div>

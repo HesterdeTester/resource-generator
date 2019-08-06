@@ -16,11 +16,8 @@ export class MiningCalcService {
 
   getChances(geode) {
     return this.geodes.geodeList.find(item => item.id === geode);
-    // const chanceRest = 21; oud,
-    // return chanceRest;
-    // krijg de unubtaniumChance,	suriliumChance,	daliumChance,	blarniumChance, of endrange, in een json
   }
-  // nu nog hardcoded:
+
   calculator(level: number, chance): any {
     const loops: number = Math.ceil(this.getRandomInt((level / 2), level));
     const unubtaniumEndRange = chance.unubtanium - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
@@ -32,36 +29,57 @@ export class MiningCalcService {
   }
   getGrondstof(loops: number, unubtaniumEndRange, suriliumEndRange, daliumEndRange, blarniumEndRange) {
     const result = [];
+    let unubtaniumCount: number = 0;
+    let suriliumCount: number = 0;
+    let daliumCount: number = 0;
+    let blarniumCount: number = 0;
+    let emptyCount: number = 0;
+    let totalCount: number = 0;
     for (let i = 0; i < loops; i++) {
+      totalCount++;
       const calcChance: number = this.getRandomInt(0, 99); // 99 nodig, anders krijgt empty 3 procent kans ipv 2
       if (this.inRange(calcChance, 0, unubtaniumEndRange)) {
         result.push('Unubtanium');
+        unubtaniumCount++;
         continue;
       }
       if (this.inRange(calcChance, (unubtaniumEndRange + 1), suriliumEndRange)) {
         result.push('Surilium');
+        suriliumCount++;
         continue;
       }
       if (this.inRange(calcChance, (suriliumEndRange + 1), daliumEndRange)) {
         result.push('Dalium');
+        daliumCount++;
         continue;
       }
       if (this.inRange(calcChance, (daliumEndRange + 1), blarniumEndRange)) {
         result.push('Blarnium');
+        blarniumCount++;
         continue;
       }
       if (this.inRange(calcChance, (blarniumEndRange + 1), 99)) {
         result.push('Empty');
+        emptyCount++;
         continue;
       }
-  }
-    return result;
+    }
+    const textJson = '[' +
+      '{ name: "Unubtanium" , amount: ' + unubtaniumCount + ' },' +
+      '{ name: "Surilium:" , amount: ' + suriliumCount + ' },' +
+      '{ name: "Dalium" , amount: ' + daliumCount + ' },' +
+      '{ name: "Blarnium" , amount: ' + blarniumCount + ' },' +
+      '{ name: "Empty" , amount: ' + emptyCount + ' }+ ' +
+      '{ name: "Total" , amount: ' + totalCount + ' }]'
+    //console.log('textJSON' + textJson);
+    return textJson;
   }
 
-getRandomInt(min, max): number {
-  return Math.random() * (max - min) + min;
-}
-inRange(x, min, max) {
-  return ((x - min) * (x - max) <= 0);
-}
+
+  getRandomInt(min, max): number {
+    return Math.random() * (max - min) + min;
+  }
+  inRange(x, min, max) {
+    return ((x - min) * (x - max) <= 0);
+  }
 }
