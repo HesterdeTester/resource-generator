@@ -7,12 +7,6 @@ import Geodes from '../../assets/data/geodes.json';
 export class MiningCalcService {
   geodes: any = Geodes;
 
-  mockResult = {
-    grondstof1: 1,
-    grondstof2: 0,
-    grondstof3: 3
-  };
-
   constructor() { }
 
   getResult(level: number, geode): any {
