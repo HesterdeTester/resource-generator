@@ -41,6 +41,9 @@
       <td> {{ group.amount }} </td>
   </tr>
 </table>
+<div *ngIf="submittedGeode">
+    <app-result-chart [oreArray]="oreArray"></app-result-chart>
+</div>
  </div>
  <br>
  <HR *ngIf="submittedGeode">

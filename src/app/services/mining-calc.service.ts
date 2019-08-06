@@ -9,17 +9,17 @@ export class MiningCalcService {
 
   constructor() { }
 
-  getResult(level: number, geode): any {
+  getResult(level: number, geode, times: number): any {
     const chancesJson = this.getChances(geode);
-    return this.calculator(level, chancesJson.chances);
+    return this.calculator(level, chancesJson.chances, times);
   }
 
   getChances(geode) {
     return this.geodes.geodeList.find(item => item.id === geode);
   }
 
-  calculator(level: number, chance): any {
-    const loops: number = Math.ceil(this.getRandomInt((level / 2), level)); // level keer het aantal minepogingen voor meerdere keren minen
+  calculator(level: number, chance, times): any {
+    const loops: number = (Math.ceil(this.getRandomInt((level / 2), level))* times); // level keer het aantal minepogingen voor meerdere keren minen
     const unubtaniumEndRange = chance.unubtanium - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
     const suriliumEndRange = chance.unubtanium + chance.surilium - 1;
     const daliumEndRange = chance.unubtanium + chance.surilium + chance.dalium - 1;

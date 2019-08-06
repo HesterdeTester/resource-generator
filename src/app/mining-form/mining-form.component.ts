@@ -28,7 +28,7 @@ export class MiningFormComponent implements OnInit {
     setTimeout(() => {
       this.submittedGeode = this.geodes.geodeList.find(item => item.id === this.miningForm.controls.geode.value);
       this.oreArray = this.miningCalcService.getResult(
-        this.miningForm.controls.level.value, this.miningForm.controls.geode.value);
+        this.miningForm.controls.level.value, this.miningForm.controls.geode.value, this.miningForm.controls.times.value);
     }, 100);
   }
 }

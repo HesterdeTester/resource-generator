@@ -5,15 +5,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MiningFormComponent } from './mining-form/mining-form.component';
-import { MiningChartComponent } from './mining-form/mining-chart/mining-chart.component';
+import { MiningChartComponent } from './charts/mining-chart/mining-chart.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ResultChartComponent } from './charts/result-chart/result-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MiningFormComponent,
-    MiningChartComponent
+    MiningChartComponent,
+    ResultChartComponent
   ],
   imports: [
     BrowserModule,
