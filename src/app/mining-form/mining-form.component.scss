@@ -1,0 +1,12 @@
+
+.container{
+    margin: 4%;
+    .results {
+        display: flex; 
+        flex-direction: row; 
+        width: 100%;
+        .res {
+            flex: 1
+        }
+    }
+}
