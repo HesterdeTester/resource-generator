@@ -19,7 +19,7 @@ export class MiningCalcService {
   }
 
   calculator(level: number, chance): any {
-    const loops: number = Math.ceil(this.getRandomInt((level / 2), level));
+    const loops: number = Math.ceil(this.getRandomInt((level / 2), level)); // level keer het aantal minepogingen voor meerdere keren minen
     const unubtaniumEndRange = chance.unubtanium - 1; // chance.unubtanium (want JSON), zou ook endRange terug kunnen krijgen
     const suriliumEndRange = chance.unubtanium + chance.surilium - 1;
     const daliumEndRange = chance.unubtanium + chance.surilium + chance.dalium - 1;
@@ -65,15 +65,14 @@ export class MiningCalcService {
       }
     }
     const resultArray = [
-      { name: 'Unubtanium' , amount:  + unubtaniumCount },
-      { name: 'Surilium' , amount:  + suriliumCount },
-      { name: 'Dalium' , amount: + daliumCount },
-      { name: 'Blarnium' , amount:  blarniumCount },
-      { name: 'Empty' , amount:  emptyCount },
-      { name: 'Totaal aantal grondstoffen' , amount:  totalCount }]
+      { name: 'Unubtanium' , amount: unubtaniumCount },
+      { name: 'Surilium' , amount: suriliumCount },
+      { name: 'Dalium' , amount: daliumCount },
+      { name: 'Blarnium' , amount: blarniumCount },
+      { name: 'Empty' , amount: emptyCount },
+      { name: 'Totaal aantal' , amount: totalCount }]
     return resultArray;
   }
-
 
   getRandomInt(min, max): number {
     return Math.random() * (max - min) + min;

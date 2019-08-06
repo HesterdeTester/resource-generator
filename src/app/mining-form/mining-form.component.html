@@ -22,26 +22,38 @@
             </select>
         </div>
         <br>
-        <button type="submit" [disabled]="!miningForm.valid" class="btn btn-success">MINE BITCHES!</button>
+        <div>
+        <label>Hoevaak: </label>
+       <input type="number" class="form-control" id="times
 
+
+
+
+
+
+
+
+
+       ut" formControlName="times"> <!-- ng-model="user.name"  name="times" required -->
+    </div>
+        <br>
+        <button type="submit" [disabled]="!miningForm.valid" class="btn btn-success">MINE BITCHES!</button>
     </form>
     <br>
-<table>
+    <div *ngIf="submittedGeode">
+<table  style="width:30%">
+   <tr>
+    <th align="left">Grondstof</th>
+    <th align="left">Hoeveelheid</th>
+  </tr>
   <tr *ngFor="let group of oreArray">
       <td> {{ group.name }} </td>
       <td> {{ group.amount }} </td>
   </tr>
 </table>
-
-
-    <!-- <table>
-    <tr *ngFor="#oreArray of oreArray">
-        <td><h1>{{oreArray.name}}</h1></td>
-    </tr>
-</table> -->
-    <!-- <p>
-        {{ oreArray }}
-    </p> -->
+ </div>
+ <br>
+ <HR *ngIf="submittedGeode">
     <div *ngIf="submittedGeode">
         <app-mining-chart [geode]="submittedGeode"></app-mining-chart>
     </div>
