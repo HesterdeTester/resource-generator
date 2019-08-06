@@ -64,7 +64,7 @@ export class MiningCalcService {
         continue;
       }
     }
-    const resultArray = [ +
+    const resultArray = [
       { name: 'Unubtanium' , amount:  + unubtaniumCount },
       { name: 'Surilium' , amount:  + suriliumCount },
       { name: 'Dalium' , amount: + daliumCount },
