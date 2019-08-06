@@ -8,9 +8,8 @@
                 <select class="form-control" id="geode" formControlName="geode">
                     <option *ngFor="let geode of geodes.geodeList" [value]="geode.id">{{geode.name}}</option>
                 </select>
-                <br><br>
                 <label for="level">Level: </label>
-                <select class="form-control" id="level" formControlName="level">
+                <select class="form-control input" id="level" formControlName="level">
                     <option value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
@@ -23,10 +22,9 @@
                     <option value=10>10</option>
                 </select>
             </div>
-            <br>
             <div>
                 <label>Hoe vaak: </label>
-                <input type="number" class="form-control" id="times" formControlName="times">
+                <input type="number" class="form-control input" id="times" formControlName="times">
                 <!-- ng-model="user.name"  name="times" required -->
             </div>
             <br>

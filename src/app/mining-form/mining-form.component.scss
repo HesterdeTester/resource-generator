@@ -1,12 +1,17 @@
 
 .container{
-    margin: 4%;
+    margin: 15px;
     .results {
+        padding: 15px;
         display: flex; 
         flex-direction: row; 
         width: 100%;
         .res {
-            flex: 1
+            flex: 1;             
         }
+       
     }
+}
+.input {
+    width: 33px
 }
