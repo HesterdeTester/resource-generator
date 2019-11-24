@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef, Input, ChangeDetectorRef } from '@angular/core';
 import { Chart } from 'chart.js';
+import {draw, generate} from 'patternomaly';
+import pattern from 'patternomaly';
 
 @Component({
   selector: 'app-result-chart',
@@ -38,13 +40,25 @@ export class ResultChartComponent implements OnInit, AfterViewInit {
         labels: this.resultLabels, // het totaal zit hier nog in! :o !!!!
         datasets: [{
           label: '# of Grondstoffen',
-          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          backgroundColor: [
+            pattern.draw('weave', '#3e95cd'),
+            pattern.draw('dot', '#8e5ea2'),
+            pattern.draw('diamond-box', '#3cba9f'),
+            pattern.draw('zigzag-vertical', '#f67b78'),
+            pattern.draw('cross', '#0f0f0f'),
+        ],
           data: this.resultData,
           borderWidth: 1
         }]
       },
       options: {
-        animation: false,
+        legend: {
+          labels: {
+        fontColor: 'white',
+        fontSize: 14,
+          }
+        },
+        animateRotate: true,
         responsive: true,
         title: {
           display: false,

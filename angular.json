@@ -31,7 +31,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/patternomaly/dist/patternomaly.js"
+            ]
           },
           "configurations": {
             "production": {

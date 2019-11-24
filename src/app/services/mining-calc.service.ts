@@ -70,7 +70,7 @@ export class MiningCalcService {
       { name: 'Dalium' , amount: daliumCount },
       { name: 'Blarnium' , amount: blarniumCount },
       { name: 'Empty' , amount: emptyCount },
-      { name: 'Totaal aantal' , amount: totalCount }]
+      { name: 'Total' , amount: totalCount }]
     return resultArray;
   }
 

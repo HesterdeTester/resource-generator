@@ -1,6 +1,13 @@
 
 .container{
     margin: 15px;
+    .half{
+        padding: 15px;
+        border-style: groove;
+        border-color:rgba(51, 51, 51, 0.246);
+        border-width: 2px;
+        border-radius: 8px;
+    }
     .results {
         padding: 15px;
         display: flex; 

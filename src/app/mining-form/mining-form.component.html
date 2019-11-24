@@ -1,8 +1,9 @@
 <div class="container">
     <div class="half">
-        <h1>Lekker minen</h1>
-
+        <h1>Resource Generator</h1>
+        <div class="Mine">
         <form [formGroup]="miningForm" (ngSubmit)="onSubmit()">
+                <h2>Mining</h2>
             <div class="form-group">
                 <label for="geode">Geode: </label>
                 <select class="form-control" id="geode" formControlName="geode">
@@ -23,20 +24,21 @@
                 </select>
             </div>
             <div>
-                <label>Hoe vaak: </label>
+                <label>Sessions: </label>
                 <input type="number" class="form-control input" id="times" formControlName="times">
                 <!-- ng-model="user.name"  name="times" required -->
             </div>
             <br>
-            <button type="submit" [disabled]="!miningForm.valid" class="btn btn-success">MINE BITCHES!</button>
+            <button type="submit" [disabled]="!miningForm.valid" class="btn btn-success">Mine</button>
         </form>
         <br>
-        <div class="results">
+        <div *ngIf="submittedGeode" class="results">
             <div *ngIf="submittedGeode" class="res">
+                  <h2>Mining Result</h2>  
                 <table style="width:30%">
                     <tr>
-                        <th align="left">Grondstof</th>
-                        <th align="left">Hoeveelheid</th>
+                        <th align="left">Ore</th>
+                        <th align="left">Amount</th>
                     </tr>
                     <tr *ngFor="let group of oreArray">
                         <td> {{ group.name }} </td>
@@ -44,14 +46,29 @@
                     </tr>
                 </table>
             </div>
-
-            <div *ngIf="submittedGeode" class="half res">
-                <app-result-chart [oreArray]="oreArray"></app-result-chart>
-            </div>
+            <div *ngIf="submittedGeode" class="res">
+                    <app-result-chart [oreArray]="oreArray"></app-result-chart>
+                </div>
         </div>
     </div>
-    <br>
 </div>
+    <div class="half">
+    <form [formGroup]="prospectForm" (ngSubmit)="onProspect()">
+            <h2>Prospect</h2>
+                    <div class="form-group">
+                        <label for="geode">Geode: </label>
+                        <select class="form-control" id="geode" formControlName="geode">
+                            <option *ngFor="let geode of geodes.geodeList" [value]="geode.id">{{geode.name}}</option>
+                        </select>
+                    </div>                   
+                    <br>
+                    <button type="submit" [disabled]="!prospectForm.valid" class="btn btn-success">Prospect</button>
+                </form>
+
+            <div *ngIf="prospectedGeode" class="half res">
+                    <app-mining-chart [geode]="prospectedGeode"></app-mining-chart>
+            </div>
+        </div>
 <!-- <div *ngIf="submittedGeode">
     <app-mining-chart [geode]="submittedGeode"></app-mining-chart>
 </div> -->
