@@ -2,73 +2,73 @@
     <div class="half">
         <h1>Resource Generator</h1>
         <div class="Mine">
-        <form [formGroup]="miningForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="miningForm" (ngSubmit)="onSubmit()">
                 <h2>Mining</h2>
+                <div class="form-group">
+                    <label for="geode">Geode: </label>
+                    <select class="form-control" id="geode" formControlName="geode">
+                        <option *ngFor="let geode of geodes.geodeList" [value]="geode.id">{{geode.name}}</option>
+                    </select>
+                    <label for="level">Level: </label>
+                    <select class="form-control input" id="level" formControlName="level">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Sessions: </label>
+                    <input type="number" class="form-control input" id="times" formControlName="times">
+                    <!-- ng-model="user.name"  name="times" required -->
+                </div>
+                <br>
+                <button type="submit" [disabled]="!miningForm.valid" class="btn btn-success">Mine</button>
+            </form>
+            <br>
+            <h2 *ngIf="submittedGeode" >Mining Result</h2>
+            <div *ngIf="submittedGeode" class="results">                
+                <div class="res">
+                    <table>
+                        <tr>
+                            <th align="left">Ore</th>
+                            <th align="left">Amount</th>
+                        </tr>
+                        <tr *ngFor="let group of oreArray">
+                            <td> {{ group.name }} </td>
+                            <td> {{ group.amount }} </td>
+                        </tr>
+                    </table>
+                </div>
+                <div *ngIf="submittedGeode" class="res res--3">
+                    <app-result-chart [oreArray]="oreArray"></app-result-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="half">
+        <form [formGroup]="prospectForm" (ngSubmit)="onProspect()">
+            <h2>Prospect</h2>
             <div class="form-group">
                 <label for="geode">Geode: </label>
                 <select class="form-control" id="geode" formControlName="geode">
                     <option *ngFor="let geode of geodes.geodeList" [value]="geode.id">{{geode.name}}</option>
                 </select>
-                <label for="level">Level: </label>
-                <select class="form-control input" id="level" formControlName="level">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                </select>
-            </div>
-            <div>
-                <label>Sessions: </label>
-                <input type="number" class="form-control input" id="times" formControlName="times">
-                <!-- ng-model="user.name"  name="times" required -->
             </div>
             <br>
-            <button type="submit" [disabled]="!miningForm.valid" class="btn btn-success">Mine</button>
+            <button type="submit" [disabled]="!prospectForm.valid" class="btn btn-success">Prospect</button>
         </form>
-        <br>
-        <div *ngIf="submittedGeode" class="results">
-            <div *ngIf="submittedGeode" class="res">
-                  <h2>Mining Result</h2>  
-                <table style="width:30%">
-                    <tr>
-                        <th align="left">Ore</th>
-                        <th align="left">Amount</th>
-                    </tr>
-                    <tr *ngFor="let group of oreArray">
-                        <td> {{ group.name }} </td>
-                        <td> {{ group.amount }} </td>
-                    </tr>
-                </table>
-            </div>
-            <div *ngIf="submittedGeode" class="res">
-                    <app-result-chart [oreArray]="oreArray"></app-result-chart>
-                </div>
+
+        <div *ngIf="prospectedGeode" class="half res">
+            <app-mining-chart [geode]="prospectedGeode"></app-mining-chart>
         </div>
     </div>
-</div>
-    <div class="half">
-    <form [formGroup]="prospectForm" (ngSubmit)="onProspect()">
-            <h2>Prospect</h2>
-                    <div class="form-group">
-                        <label for="geode">Geode: </label>
-                        <select class="form-control" id="geode" formControlName="geode">
-                            <option *ngFor="let geode of geodes.geodeList" [value]="geode.id">{{geode.name}}</option>
-                        </select>
-                    </div>                   
-                    <br>
-                    <button type="submit" [disabled]="!prospectForm.valid" class="btn btn-success">Prospect</button>
-                </form>
-
-            <div *ngIf="prospectedGeode" class="half res">
-                    <app-mining-chart [geode]="prospectedGeode"></app-mining-chart>
-            </div>
-        </div>
-<!-- <div *ngIf="submittedGeode">
+    <!-- <div *ngIf="submittedGeode">
     <app-mining-chart [geode]="submittedGeode"></app-mining-chart>
 </div> -->

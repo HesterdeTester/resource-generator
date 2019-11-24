@@ -60,6 +60,7 @@ export class ResultChartComponent implements OnInit, AfterViewInit {
         },
         animateRotate: true,
         responsive: true,
+        maintainAspectRatio: false,
         title: {
           display: false,
         },
