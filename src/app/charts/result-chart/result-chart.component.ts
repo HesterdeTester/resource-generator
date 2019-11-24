@@ -26,7 +26,7 @@ export class ResultChartComponent implements OnInit, AfterViewInit {
   }
   parseResults(){
     this.oreArray.forEach(ore => {
-      if (ore.name !== 'Totaal aantal'){
+      if (ore.name !== 'Total'){
       this.resultLabels.push(ore.name);
       this.resultData.push(ore.amount)
     }});
