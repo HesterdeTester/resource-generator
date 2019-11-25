@@ -9,10 +9,12 @@ import { MiningChartComponent } from './charts/mining-chart/mining-chart.compone
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ResultChartComponent } from './charts/result-chart/result-chart.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CommonModule,
     MiningFormComponent,
     MiningChartComponent,
     ResultChartComponent
