@@ -54,15 +54,24 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
         title: {
           display: true,
           text: this.geode.name,
-          fontSize: 17
+          fontSize: 24,
+          fontColor: 'white'
         },
         scales: {
           xAxes: [{
-            display: true
+            display: true,
+            ticks: {
+              fontColor: 'white',
+              fontSize: 13
+            }
           }],
           yAxes: [{
-            display: true
+            display: true,
+            ticks: {
+              fontColor: 'white'
+            }
           }],
+
         }
       }
     });
