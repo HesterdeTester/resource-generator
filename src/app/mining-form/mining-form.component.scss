@@ -14,8 +14,8 @@
         flex-direction: row; 
         width: 100%;
 
-        @media screen {
-            
+        @media (max-width: 768px) {
+            flex-direction: column;
         }
 
         .res {
@@ -27,4 +27,10 @@
 }
 .input {
     width: 33px
+}
+
+@media (max-width: 768px) {
+    table {
+        width: auto;
+    }
 }
