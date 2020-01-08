@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/HesterdeTester/resource-generator) 
+
 # ResourceGenerator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
