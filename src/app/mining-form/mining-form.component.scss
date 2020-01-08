@@ -1,0 +1,36 @@
+
+.container{
+    margin: 15px;
+    .half{
+        padding: 15px;
+        border-style: groove;
+        border-color:rgba(51, 51, 51, 0.246);
+        border-width: 2px;
+        border-radius: 8px;
+    }
+    .results {
+        padding: 15px;
+        display: flex; 
+        flex-direction: row; 
+        width: 100%;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        .res {
+            flex: 1;
+            &--3 {flex: 3}             
+        }
+       
+    }
+}
+.input {
+    width: 33px
+}
+
+@media (max-width: 768px) {
+    table {
+        width: auto;
+    }
+}

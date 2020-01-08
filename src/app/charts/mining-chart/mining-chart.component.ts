@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, Input, ChangeDetectorRef } from '@angular/core';
 import { Chart } from 'chart.js';
+import pattern from 'patternomaly';
 
 @Component({
   selector: 'app-mining-chart',
@@ -14,6 +15,7 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
   constructor(private elementRef: ElementRef, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    console.log("hallo");
     this.createChart();
   }
 
@@ -30,7 +32,13 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
         labels: ['Unubtanium: ' + this.geode.chances.unubtanium + '%', 'Surilium: ' + this.geode.chances.surilium + '%', 'Dalium: ' + this.geode.chances.dalium + '%', 'Blarnium: ' + this.geode.chances.blarnium + '%', 'Empty: 2%'],
         datasets: [
           {
-            backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850'],
+            backgroundColor: [
+              pattern.draw('weave', '#3e95cd'),
+              pattern.draw('dot', '#8e5ea2'),
+              pattern.draw('diamond-box', '#3cba9f'),
+              pattern.draw('zigzag-vertical', '#f67b78'),
+              pattern.draw('cross', '#0f0f0f'),
+          ],
             fill: false,
             borderColor: '#3cba9f',
             data: [this.geode.chances.unubtanium, this.geode.chances.surilium, this.geode.chances.dalium, this.geode.chances.blarnium, 2]
@@ -46,27 +54,26 @@ export class MiningChartComponent implements OnInit, AfterViewInit {
         title: {
           display: true,
           text: this.geode.name,
-          fontSize: 17
+          fontSize: 24,
+          fontColor: 'white'
         },
         scales: {
           xAxes: [{
-            display: true
+            display: true,
+            ticks: {
+              fontColor: 'white',
+              fontSize: 13
+            }
           }],
           yAxes: [{
-            display: true
+            display: true,
+            ticks: {
+              fontColor: 'white'
+            }
           }],
+
         }
       }
     });
   }
-
-  // setData(): any {
-  //   return {
-  //     datasets: [{
-  //       data: [24, 16, 34, 24]
-  //     }],
-  //     labels: ['Unubtanium', 'Surilium', 'Dalium', 'Blarnium']
-  //   };
-  // }
-
 }
