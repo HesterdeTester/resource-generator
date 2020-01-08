@@ -1,0 +1,16 @@
+{
+    "information": [
+        {
+            "id": "mining",
+            "name": "Mining",
+            "action": "Mine",
+            "locationType": "Geode"
+        },
+        {
+            "id": "chemistry",
+            "name": "Chemistry",
+            "action": "Synthesize",
+            "locationType": "Geode"
+        }
+    ]
+}
